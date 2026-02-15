@@ -12,11 +12,11 @@ function renderWords(words) {
   words.forEach(w => {
     const cell = document.createElement("div");
     cell.className = "word-cell";
-    cell.innerHTML = `
-      <img src="${w.image}">
-      <div>${w.label} - ${w.col}</div>
-      <div>${w.word}</div>
-    `;
+    ccell.innerHTML = `
+  <img src="${w.image}">
+  <div>${w.label} - ${w.col}</div>
+  <div>${currentLang === "ar" ? w.arabicWord : w.englishWord}</div>
+`;
     cell.onclick = () => selectWord(w);
     panel.appendChild(cell);
   });
@@ -51,4 +51,5 @@ function renderStoryText([w1, w2, w3, w4]) {
     `The ${w2.word} was affected by ${w1.word}, ` +
     `the change led to ${w4.word}, then ${w3.word}.`;
 }
+
 
