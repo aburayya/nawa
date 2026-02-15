@@ -49,13 +49,18 @@ function attachAdminListeners() {
       const index = e.target.dataset.index;
       const field = e.target.dataset.field;
 
-      if (field === "image") {
-        const file = e.target.files[0];
-        if (file) {
-          const url = URL.createObjectURL(file);
-          adminWords[index].image = url; // preview only
-        }
-      } else {
+     if (field === "image") {
+  const file = e.target.files[0];
+  if (file) {
+    const filename = `word-${adminWords[index].id}.png`;
+
+    // Upload to GitHub
+    uploadImage(filename, file).then(res => {
+      adminWords[index].image = `images/${filename}`;
+      renderAdminTable();
+    });
+  }
+} else {
         adminWords[index][field] = e.target.value;
       }
     });
@@ -78,3 +83,8 @@ document.getElementById("save-changes").onclick = async () => {
 
 loadAdminWords();
 
+document.getElementById("save-token").onclick = () => {
+  const token = document.getElementById("github-token").value;
+  saveToken(token);
+  alert("تم حفظ التوكن");
+};
