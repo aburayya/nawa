@@ -2,23 +2,20 @@
    GLOBAL
 -------------------------------------------------- */
 
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
 body {
   margin: 0;
   font-family: "Cairo", sans-serif;
-  background: #111;
-  color: #eee;
+  background: #0f0f0f;
+  color: #f5f5f5;
   direction: rtl;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 .theme-light {
-  background: #f7f7f7;
+  background: #ffffff;
   color: #222;
-}
-
-h1, h2, h3 {
-  font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 /* --------------------------------------------------
@@ -26,41 +23,51 @@ h1, h2, h3 {
 -------------------------------------------------- */
 
 header {
-  padding: 15px 25px;
+  padding: 18px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1a1a1a;
-  border-bottom: 1px solid #333;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.theme-light header {
+  background: rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 header h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .controls button {
-  margin-left: 10px;
-  padding: 7px 14px;
+  margin-left: 12px;
+  padding: 8px 16px;
   cursor: pointer;
   border: none;
-  border-radius: 6px;
-  background: #333;
+  border-radius: 10px;
+  background: #1f1f1f;
   color: #eee;
-  transition: background 0.2s ease;
+  font-size: 14px;
+  transition: 0.25s ease;
 }
 
 .controls button:hover {
-  background: #555;
+  background: #333;
+  transform: translateY(-2px);
 }
 
 .theme-light .controls button {
-  background: #ddd;
+  background: #e6e6e6;
   color: #222;
 }
 
 .theme-light .controls button:hover {
-  background: #ccc;
+  background: #d4d4d4;
 }
 
 /* --------------------------------------------------
@@ -69,25 +76,28 @@ header h1 {
 
 main {
   display: flex;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 80px);
   overflow: hidden;
 }
+
+/* --------------------------------------------------
+   WORD GRID PANEL
+-------------------------------------------------- */
 
 #words-panel {
   width: 45%;
   overflow-y: auto;
-  padding: 15px;
-  border-left: 1px solid #333;
-}
-
-#story-panel {
-  width: 55%;
   padding: 20px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255,255,255,0.05);
 }
 
-/* --------------------------------------------------
-   WORD GRID
--------------------------------------------------- */
+.theme-light #words-panel {
+  background: rgba(0,0,0,0.03);
+}
+
+/* Word Cell */
 
 .word-cell {
   display: inline-block;
@@ -95,51 +105,69 @@ main {
   margin: 1%;
   text-align: center;
   cursor: pointer;
-  padding: 10px 5px;
-  border-radius: 8px;
-  transition: transform 0.15s ease, background 0.2s ease;
+  padding: 12px 8px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  transition: 0.25s ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
 .word-cell:hover {
-  transform: translateY(-4px);
-  background: rgba(255,255,255,0.05);
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.theme-light .word-cell {
+  background: rgba(0,0,0,0.04);
 }
 
 .theme-light .word-cell:hover {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0,0,0,0.08);
 }
 
 .word-cell img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
-  border: none;
+  border-radius: 12px;
 }
 
 .word-cell div {
-  margin-top: 6px;
-  font-size: 14px;
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 /* --------------------------------------------------
-   STORY LAYOUT
+   STORY PANEL
 -------------------------------------------------- */
+
+#story-panel {
+  width: 55%;
+  padding: 30px;
+}
+
+/* Story Images Layout */
 
 #story-images {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
-  margin-bottom: 20px;
+  gap: 30px;
+  margin-bottom: 25px;
 }
 
+/* Main Box */
+
 .main-box {
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   position: relative;
-  border-radius: 10px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transition: 0.3s ease;
 }
 
 .main-box img {
@@ -148,13 +176,16 @@ main {
   object-fit: cover;
 }
 
+/* Small Boxes */
+
 .small-box {
   width: 150px;
   height: 150px;
   position: absolute;
-  border-radius: 10px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  transition: 0.3s ease;
 }
 
 .small-box img {
@@ -173,12 +204,14 @@ main {
   right: 0;
 }
 
+/* Outcome Box */
+
 .outcome-box {
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
+  width: 320px;
+  height: 320px;
+  border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
 /* --------------------------------------------------
@@ -187,11 +220,13 @@ main {
 
 #story-text {
   margin-top: 10px;
-  font-size: 20px;
-  line-height: 1.7;
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.05);
+  font-size: 22px;
+  line-height: 1.8;
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 .theme-light #story-text {
@@ -206,7 +241,7 @@ main {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.65);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -218,70 +253,92 @@ main {
 }
 
 .modal-content {
-  background: #222;
-  padding: 25px;
-  width: 320px;
-  border-radius: 10px;
+  background: #1c1c1c;
+  padding: 30px;
+  width: 340px;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
 .modal-content input {
   width: 90%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 6px;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 10px;
   border: none;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.theme-light .modal-content {
+  background: #fff;
+  color: #222;
+}
+
+.theme-light .modal-content input {
+  background: #f0f0f0;
+  color: #222;
 }
 
 .error {
-  color: #ff4444;
+  color: #ff5555;
   margin-top: 10px;
 }
 
 /* --------------------------------------------------
-   ADMIN TABLE
+   ADMIN PANEL
 -------------------------------------------------- */
 
 #admin-panel {
-  padding: 20px;
+  padding: 30px;
 }
 
 #admin-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 25px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 #admin-table th, #admin-table td {
-  border: 1px solid #444;
-  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 12px;
   text-align: center;
+}
+
+.theme-light #admin-table th, 
+.theme-light #admin-table td {
+  border: 1px solid rgba(0,0,0,0.08);
 }
 
 #admin-table img {
   width: 60px;
   height: 60px;
+  border-radius: 10px;
   object-fit: cover;
-  border-radius: 6px;
 }
 
 #save-changes {
-  margin-top: 20px;
-  padding: 12px 20px;
+  margin-top: 25px;
+  padding: 14px 24px;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 10px;
   border: none;
-  background: #333;
+  background: #1f1f1f;
   color: #eee;
+  font-size: 15px;
+  transition: 0.25s ease;
 }
 
 #save-changes:hover {
-  background: #555;
+  background: #333;
+  transform: translateY(-2px);
 }
 
 #save-status {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 16px;
 }
 
@@ -291,5 +348,6 @@ main {
 
 #token-box input {
   width: 300px;
-  padding: 8px;
+  padding: 10px;
+  border-radius: 10px;
 }
