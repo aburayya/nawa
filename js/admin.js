@@ -15,26 +15,12 @@ function renderAdminTable() {
 
     row.innerHTML = `
       <td>${w.id}</td>
-
-      <td>
-        <input type="text" value="${w.label}" data-field="label" data-index="${index}">
-      </td>
-
-      <td>
-        <input type="text" value="${w.word}" data-field="word" data-index="${index}">
-      </td>
-
-      <td>
-        <input type="number" min="1" max="4" value="${w.col}" data-field="col" data-index="${index}">
-      </td>
-
-      <td>
-        <img src="${w.image}">
-      </td>
-
-      <td>
-        <input type="file" accept="image/*" data-field="image" data-index="${index}">
-      </td>
+      <td><input type="text" value="${w.label}" data-field="label" data-index="${index}"></td>
+      <td><input type="text" value="${w.arabicWord}" data-field="arabicWord" data-index="${index}"></td>
+      <td><input type="text" value="${w.englishWord}" data-field="englishWord" data-index="${index}"></td>
+      <td><input type="number" min="1" max="4" value="${w.col}" data-field="col" data-index="${index}"></td>
+      <td><img src="${w.image}"></td>
+      <td><input type="file" accept="image/*" data-field="image" data-index="${index}"></td>
     `;
 
     tbody.appendChild(row);
@@ -49,18 +35,16 @@ function attachAdminListeners() {
       const index = e.target.dataset.index;
       const field = e.target.dataset.field;
 
-     if (field === "image") {
-  const file = e.target.files[0];
-  if (file) {
-    const filename = `word-${adminWords[index].id}.png`;
-
-    // Upload to GitHub
-    uploadImage(filename, file).then(res => {
-      adminWords[index].image = `images/${filename}`;
-      renderAdminTable();
-    });
-  }
-} else {
+      if (field === "image") {
+        const file = e.target.files[0];
+        if (file) {
+          const filename = `word-${adminWords[index].id}.png`;
+          uploadImage(filename, file).then(() => {
+            adminWords[index].image = `images/${filename}`;
+            renderAdminTable();
+          });
+        }
+      } else {
         adminWords[index][field] = e.target.value;
       }
     });
@@ -69,7 +53,6 @@ function attachAdminListeners() {
 
 document.getElementById("save-changes").onclick = async () => {
   const json = JSON.stringify(adminWords, null, 2);
-
   document.getElementById("save-status").textContent = "جاري الحفظ...";
 
   await updateFile(
@@ -78,13 +61,14 @@ document.getElementById("save-changes").onclick = async () => {
     "Updated NAWA words via Admin Panel"
   );
 
+  localStorage.setItem("nawa_words", json);
   document.getElementById("save-status").textContent = "تم الحفظ في GitHub بنجاح";
 };
-
-loadAdminWords();
 
 document.getElementById("save-token").onclick = () => {
   const token = document.getElementById("github-token").value;
   saveToken(token);
   alert("تم حفظ التوكن");
 };
+
+loadAdminWords();
