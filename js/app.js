@@ -37,17 +37,24 @@ function selectWord(w) {
 
 function renderStory([w1, w2, w3, w4]) {
   const story = document.getElementById("story-images");
+
   story.innerHTML = `
-    <div class="main-box">
+    <div class="story-main">
       <img src="${w2.image}">
-      <div class="small-box bottom-left">
+    </div>
+
+    <div class="story-row">
+      <div class="story-small">
         <img src="${w1.image}">
       </div>
-      <div class="small-box bottom-right">
+      <div class="story-small">
         <img src="${w4.image}">
       </div>
     </div>
-    <img src="${w3.image}" class="outcome-box">
+
+    <div class="story-outcome">
+      <img src="${w3.image}">
+    </div>
   `;
 }
 
@@ -67,3 +74,4 @@ function renderStoryText([w1, w2, w3, w4]) {
       `the change led to ${w4t}, then ${w3t}.`;
   }
 }
+
