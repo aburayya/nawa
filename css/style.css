@@ -1,50 +1,93 @@
+/* --------------------------------------------------
+   GLOBAL
+-------------------------------------------------- */
+
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Cairo", sans-serif;
   background: #111;
   color: #eee;
   direction: rtl;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .theme-light {
-  background: #fafafa;
+  background: #f7f7f7;
   color: #222;
 }
 
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+
 header {
-  padding: 15px;
+  padding: 15px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #222;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
 }
 
 header h1 {
   margin: 0;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .controls button {
   margin-left: 10px;
-  padding: 6px 12px;
+  padding: 7px 14px;
   cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: #eee;
+  transition: background 0.2s ease;
 }
+
+.controls button:hover {
+  background: #555;
+}
+
+.theme-light .controls button {
+  background: #ddd;
+  color: #222;
+}
+
+.theme-light .controls button:hover {
+  background: #ccc;
+}
+
+/* --------------------------------------------------
+   MAIN LAYOUT
+-------------------------------------------------- */
 
 main {
   display: flex;
   height: calc(100vh - 70px);
+  overflow: hidden;
 }
 
 #words-panel {
   width: 45%;
   overflow-y: auto;
-  padding: 10px;
+  padding: 15px;
+  border-left: 1px solid #333;
 }
 
 #story-panel {
   width: 55%;
-  padding: 10px;
+  padding: 20px;
 }
+
+/* --------------------------------------------------
+   WORD GRID
+-------------------------------------------------- */
 
 .word-cell {
   display: inline-block;
@@ -52,44 +95,72 @@ main {
   margin: 1%;
   text-align: center;
   cursor: pointer;
+  padding: 10px 5px;
+  border-radius: 8px;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.word-cell:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.05);
+}
+
+.theme-light .word-cell:hover {
+  background: rgba(0,0,0,0.05);
 }
 
 .word-cell img {
   width: 100%;
   height: auto;
+  border-radius: 6px;
   border: none;
 }
+
+.word-cell div {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* --------------------------------------------------
+   STORY LAYOUT
+-------------------------------------------------- */
 
 #story-images {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 20px;
 }
 
 .main-box {
   width: 300px;
   height: 300px;
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
 }
 
 .main-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: none;
 }
 
 .small-box {
   width: 150px;
   height: 150px;
   position: absolute;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
 .small-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: none;
 }
 
 .bottom-left {
@@ -105,16 +176,31 @@ main {
 .outcome-box {
   width: 300px;
   height: 300px;
+  border-radius: 10px;
   object-fit: cover;
-  border: none;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
 }
+
+/* --------------------------------------------------
+   STORY TEXT
+-------------------------------------------------- */
 
 #story-text {
-  margin-top: 20px;
-  font-size: 18px;
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 1.7;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
 }
 
-/* Modal */
+.theme-light #story-text {
+  background: rgba(0,0,0,0.05);
+}
+
+/* --------------------------------------------------
+   MODAL
+-------------------------------------------------- */
 
 .modal {
   position: fixed;
@@ -124,6 +210,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.3s ease;
 }
 
 .modal.hidden {
@@ -132,16 +219,19 @@ main {
 
 .modal-content {
   background: #222;
-  padding: 20px;
-  width: 300px;
-  border-radius: 8px;
+  padding: 25px;
+  width: 320px;
+  border-radius: 10px;
   text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
 .modal-content input {
   width: 90%;
-  padding: 8px;
-  margin: 8px 0;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
 }
 
 .error {
@@ -149,7 +239,9 @@ main {
   margin-top: 10px;
 }
 
-/* Admin */
+/* --------------------------------------------------
+   ADMIN TABLE
+-------------------------------------------------- */
 
 #admin-panel {
   padding: 20px;
@@ -163,7 +255,7 @@ main {
 
 #admin-table th, #admin-table td {
   border: 1px solid #444;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -171,13 +263,21 @@ main {
   width: 60px;
   height: 60px;
   object-fit: cover;
-  border: none;
+  border-radius: 6px;
 }
 
 #save-changes {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #333;
+  color: #eee;
+}
+
+#save-changes:hover {
+  background: #555;
 }
 
 #save-status {
