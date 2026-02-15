@@ -47,3 +47,20 @@ loginSubmit.onclick = async () => {
     window.location.href = "admin.html";
   }
 };
+
+const uiText = {
+  ar: {
+    title: "NAWA – الخوارزمية الجديدة للكلمات العربية",
+    edit: "تعديل",
+    save: "حفظ",
+    logout: "تسجيل الخروج",
+    adminPanel: "لوحة التحكم"
+  },
+  en: {
+    title: "NAWA – The New Arabic Words Algorithm",
+    edit: "Edit",
+    save: "Save",
+    logout: "Logout",
+    adminPanel: "Admin Panel"
+  }
+};
