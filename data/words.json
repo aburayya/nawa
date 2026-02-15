@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "row": 1,
+    "col": 1,
+    "arabicLabel": "ا",
+    "englishLabel": "overcome",
+    "arabicText": "يتغلب",
+    "image": "images/word-1.png"
+  },
+  {
+    "id": 2,
+    "row": 1,
+    "col": 2,
+    "englishLabel": "relation of expansion",
+    "arabicText": "علاقة التمدد",
+    "image": "images/word-2.png"
+  }
+]
