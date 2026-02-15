@@ -33,5 +33,5 @@ function getCurrentUser() {
 
 function logout() {
   localStorage.removeItem("nawa_user");
-  location.reload();
+  location.href = "index.html";
 }
