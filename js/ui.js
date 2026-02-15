@@ -5,6 +5,11 @@ document.getElementById("toggle-theme").onclick = () => {
 document.getElementById("toggle-lang").onclick = () => {
   const html = document.documentElement;
 
+  function updateUI() {
+  document.querySelector("header h1").textContent = uiText[currentLang].title;
+  document.getElementById("save-changes").textContent = uiText[currentLang].save;
+}
+
   if (currentLang === "ar") {
     currentLang = "en";
     html.lang = "en";
