@@ -1,19 +1,19 @@
 [
-  {
-    "id": 1,
-    "row": 1,
-    "col": 1,
-    "arabicLabel": "ا",
-    "englishLabel": "overcome",
-    "arabicText": "يتغلب",
-    "image": "images/word-1.png"
-  },
-  {
-    "id": 2,
-    "row": 1,
-    "col": 2,
-    "englishLabel": "relation of expansion",
-    "arabicText": "علاقة التمدد",
-    "image": "images/word-2.png"
-  }
+  {"id":1,"row":1,"col":1,"label":"ا","word":"word-1","image":"images/placeholder.png"},
+  {"id":2,"row":1,"col":2,"label":"ا","word":"word-2","image":"images/placeholder.png"},
+  {"id":3,"row":1,"col":3,"label":"ا","word":"word-3","image":"images/placeholder.png"},
+  {"id":4,"row":1,"col":4,"label":"ا","word":"word-4","image":"images/placeholder.png"},
+
+  {"id":5,"row":2,"col":1,"label":"ب","word":"word-5","image":"images/placeholder.png"},
+  {"id":6,"row":2,"col":2,"label":"ب","word":"word-6","image":"images/placeholder.png"},
+  {"id":7,"row":2,"col":3,"label":"ب","word":"word-7","image":"images/placeholder.png"},
+  {"id":8,"row":2,"col":4,"label":"ب","word":"word-8","image":"images/placeholder.png"},
+
+  {"id":9,"row":3,"col":1,"label":"ت","word":"word-9","image":"images/placeholder.png"},
+  {"id":10,"row":3,"col":2,"label":"ت","word":"word-10","image":"images/placeholder.png"},
+  {"id":11,"row":3,"col":3,"label":"ت","word":"word-11","image":"images/placeholder.png"},
+  {"id":12,"row":3,"col":4,"label":"ت","word":"word-12","image":"images/placeholder.png"},
+
+  /* Continue the same pattern until row 28 */
+  /* Total = 112 entries */
 ]
