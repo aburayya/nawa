@@ -7,13 +7,36 @@
 </head>
 
 <body class="theme-dark">
-  <h1>لوحة التحكم – NAWA</h1>
 
-  <p>هنا سيتم تعديل الكلمات والصور.</p>
+  <header>
+    <h1>لوحة التحكم – NAWA</h1>
+    <button onclick="logout()">تسجيل الخروج</button>
+  </header>
 
-  <button onclick="logout()">تسجيل الخروج</button>
+  <main id="admin-panel">
+    <h2>تعديل الكلمات والصور</h2>
+
+    <table id="admin-table">
+      <thead>
+        <tr>
+          <th>المعرف</th>
+          <th>الحرف</th>
+          <th>الكلمة</th>
+          <th>العمود</th>
+          <th>الصورة</th>
+          <th>تغيير الصورة</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <button id="save-changes">حفظ التعديلات</button>
+    <div id="save-status"></div>
+  </main>
 
   <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+
   <script>
     const user = getCurrentUser();
     if (!user || user.role !== "admin") {
@@ -21,5 +44,6 @@
       window.location.href = "index.html";
     }
   </script>
+
 </body>
 </html>
