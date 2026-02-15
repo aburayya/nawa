@@ -47,9 +47,16 @@ function renderStory([w1, w2, w3, w4]) {
 
 function renderStoryText([w1, w2, w3, w4]) {
   const text = document.getElementById("story-text");
-  text.textContent =
-    `The ${w2.word} was affected by ${w1.word}, ` +
-    `the change led to ${w4.word}, then ${w3.word}.`;
+  const w1t = currentLang === "ar" ? w1.arabicWord : w1.englishWord;
+const w2t = currentLang === "ar" ? w2.arabicWord : w2.englishWord;
+const w3t = currentLang === "ar" ? w3.arabicWord : w3.englishWord;
+const w4t = currentLang === "ar" ? w4.arabicWord : w4.englishWord;
+
+if (currentLang === "ar") {
+  text.textContent = `${w2t} تأثر بـ ${w1t}، ثم أدى التغيير إلى ${w4t}، ثم ${w3t}.`;
+} else {
+  text.textContent = `The ${w2t} was affected by ${w1t}, the change led to ${w4t}, then ${w3t}.`;
 }
+
 
 
