@@ -150,14 +150,67 @@ main {
 
 /* Story Images Layout */
 
+/* --------------------------------------------------
+   NEW CARD STACK STORY LAYOUT
+-------------------------------------------------- */
+
 #story-images {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  margin-bottom: 25px;
+  gap: 25px;
+  margin-bottom: 20px;
 }
 
+/* Main image (Word 2) */
+.story-main {
+  width: 340px;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.story-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Row of two small images (Word 1 + Word 4) */
+.story-row {
+  display: flex;
+  gap: 20px;
+}
+
+.story-small {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.story-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Outcome image (Word 3) */
+.story-outcome {
+  width: 340px;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.story-outcome img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* Main Box */
 
 .main-box {
@@ -351,3 +404,4 @@ main {
   padding: 10px;
   border-radius: 10px;
 }
+
