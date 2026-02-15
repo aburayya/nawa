@@ -62,9 +62,19 @@ function attachAdminListeners() {
   });
 }
 
-document.getElementById("save-changes").onclick = () => {
-  localStorage.setItem("nawa_words", JSON.stringify(adminWords));
-  document.getElementById("save-status").textContent = "تم حفظ التعديلات محلياً";
+document.getElementById("save-changes").onclick = async () => {
+  const json = JSON.stringify(adminWords, null, 2);
+
+  document.getElementById("save-status").textContent = "جاري الحفظ...";
+
+  await updateFile(
+    WORDS_PATH,
+    json,
+    "Updated NAWA words via Admin Panel"
+  );
+
+  document.getElementById("save-status").textContent = "تم الحفظ في GitHub بنجاح";
 };
 
 loadAdminWords();
+
