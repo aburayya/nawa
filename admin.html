@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>NAWA – لوحة التحكم</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="theme-dark">
+  <h1>لوحة التحكم – NAWA</h1>
+
+  <p>هنا سيتم تعديل الكلمات والصور.</p>
+
+  <button onclick="logout()">تسجيل الخروج</button>
+
+  <script src="js/auth.js"></script>
+  <script>
+    const user = getCurrentUser();
+    if (!user || user.role !== "admin") {
+      alert("غير مصرح بالدخول");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
