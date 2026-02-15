@@ -4,13 +4,18 @@ document.getElementById("toggle-theme").onclick = () => {
 
 document.getElementById("toggle-lang").onclick = () => {
   const html = document.documentElement;
-  if (html.lang === "ar") {
+
+  if (currentLang === "ar") {
+    currentLang = "en";
     html.lang = "en";
-    html.dir = "ltr";
+    html.dir = "rtl"; // keep layout the same
   } else {
+    currentLang = "ar";
     html.lang = "ar";
     html.dir = "rtl";
   }
+
+  renderWords(words); // re-render table
 };
 const loginBtn = document.getElementById("login-btn");
 const loginModal = document.getElementById("login-modal");
