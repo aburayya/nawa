@@ -1,3 +1,4 @@
+let currentLang = "ar";
 let selected = [];
 
 loadWords().then(words => {
@@ -50,3 +51,4 @@ function renderStoryText([w1, w2, w3, w4]) {
     `The ${w2.word} was affected by ${w1.word}, ` +
     `the change led to ${w4.word}, then ${w3.word}.`;
 }
+
