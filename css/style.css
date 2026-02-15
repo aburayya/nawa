@@ -130,3 +130,36 @@ main {
   color: #ff4444;
   margin-top: 10px;
 }
+#admin-panel {
+  padding: 20px;
+}
+
+#admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#admin-table th, #admin-table td {
+  border: 1px solid #444;
+  padding: 8px;
+  text-align: center;
+}
+
+#admin-table img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: none;
+}
+
+#save-changes {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#save-status {
+  margin-top: 10px;
+  font-size: 16px;
+}
