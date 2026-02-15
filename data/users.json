@@ -1,12 +1,12 @@
 [
   {
     "username": "admin",
-    "password": "admin123",
+    "password": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
     "role": "admin"
   },
   {
     "username": "user",
-    "password": "user123",
+    "password": "04f8996da763b7a969b5f0e2f0a3f3d6c8f2a1f0f1b8b5c5e6d3e2f1a1b0c9d0",
     "role": "user"
   }
 ]
